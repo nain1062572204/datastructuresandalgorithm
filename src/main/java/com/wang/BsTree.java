@@ -151,7 +151,7 @@ public class BsTree<T extends Comparable<? super T>> implements Tree<T> {
 
     private BsNode<T> findMin(BsNode<T> t) {
         if (t == null)
-            return null;
+            throw new NullPointerException("树是空的");
         else if (t.left == null)
             return t;
         return findMin(t.left);
@@ -159,7 +159,7 @@ public class BsTree<T extends Comparable<? super T>> implements Tree<T> {
 
     private BsNode<T> findMax(BsNode<T> t) {
         if (t == null)
-            return null;
+            throw new NullPointerException("树是空的");
         else if (t.right == null)
             return t;
         return findMin(t.right);
@@ -184,7 +184,7 @@ public class BsTree<T extends Comparable<? super T>> implements Tree<T> {
 
     private BsNode<T> remove(T x, BsNode<T> t) {
         if (t == null)
-            return null;
+            throw new NullPointerException("树是空的");
         //先查找x
         int compareResult = x.compareTo(t.element);
         if (compareResult < 0)
