@@ -5,6 +5,8 @@ import com.wang.tree.PrintType;
 import com.wang.tree.Tree;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -49,6 +51,7 @@ public class TestTree {
         avlTree.printTree();
         System.out.println("max:"+ avlTree.findMax());
         System.out.println("min:"+ avlTree.findMin());
+        List<Integer> list=new ArrayList<>();
     }
 
 
