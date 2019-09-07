@@ -1,10 +1,12 @@
 package com.wang.list;
 
+import org.omg.CORBA.Object;
+
 /**
  * @author 王念
  * @create 2019-09-07 18:35
  */
-public interface MyList<T> extends MyCollection {
+public interface MyList<T> extends MyCollection<T> {
     T get(int index);
     T set(int index,T newVal);
     void add(int index,T x);

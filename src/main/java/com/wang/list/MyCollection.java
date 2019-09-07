@@ -11,5 +11,5 @@ public interface MyCollection<T> extends Iterable<T> {
     boolean isEmpty();
     void clear();
     boolean contains(T x);
-    Iterator<T> ITERATOR();
+    Iterator<T> iterator();
 }
