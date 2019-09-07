@@ -136,14 +136,15 @@ public class BsTree<T extends Comparable<? super T>> implements Tree<T> {
         print((PrintType) printType, root);
     }
 
+    /**
+     *默认中序输出
+     */
     @Override
     public void printTree() {
         printTree(PrintType.MIDDLE);
     }
 
-    /**
-     *默认中序输出
-     */
+
 
     private boolean contains(T x, BsNode<T> t) {
         //如果t是空树，直接返回false
