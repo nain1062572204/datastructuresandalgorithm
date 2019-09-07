@@ -1,7 +1,7 @@
 package com.wang.test;
-import com.wang.BsTree;
-import com.wang.PrintType;
-import com.wang.Tree;
+import com.wang.tree.BsTree;
+import com.wang.tree.PrintType;
+import com.wang.tree.Tree;
 import org.junit.Test;
 
 import java.util.Random;

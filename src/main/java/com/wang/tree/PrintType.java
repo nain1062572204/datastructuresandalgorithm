@@ -1,4 +1,4 @@
-package com.wang;
+package com.wang.tree;
 
 /**
  * @author 王念
