@@ -45,4 +45,10 @@ public class AvlTree<T extends Comparable<? super T>> implements Tree<T> {
     public void printTree(Enum<? extends Enum> printType) {
 
     }
+
+    @Override
+    public void printTree() {
+
+    }
+
 }

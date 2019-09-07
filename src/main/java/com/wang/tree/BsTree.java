@@ -33,8 +33,8 @@ public class BsTree<T extends Comparable<? super T>> implements Tree<T> {
          * 节点构造器
          *
          * @param element 数据
-         * @param lf      左节点
-         * @param rt      右节点
+         * @param lf 左节点
+         * @param rt 右节点
          */
         private BsNode(T element, BsNode<T> lf, BsNode<T> rt) {
             this.element = element;
@@ -59,6 +59,7 @@ public class BsTree<T extends Comparable<? super T>> implements Tree<T> {
      * @param arr 数组参数
      */
     public BsTree(T[] arr) {
+        this();
         for (T x : arr) {
             insert(x);
         }
@@ -135,6 +136,15 @@ public class BsTree<T extends Comparable<? super T>> implements Tree<T> {
         print((PrintType) printType, root);
     }
 
+    @Override
+    public void printTree() {
+        printTree(PrintType.MIDDLE);
+    }
+
+    /**
+     *默认中序输出
+     */
+
     private boolean contains(T x, BsNode<T> t) {
         //如果t是空树，直接返回false
         if (null == t)
@@ -162,7 +172,7 @@ public class BsTree<T extends Comparable<? super T>> implements Tree<T> {
             throw new NullPointerException("树是空的");
         else if (t.right == null)
             return t;
-        return findMin(t.right);
+        return findMax(t.right);
     }
 
     private BsNode<T> insert(T x, BsNode<T> t) {

@@ -53,4 +53,8 @@ public interface Tree<T extends Comparable<? super T>> {
      */
     public void printTree(Enum<? extends Enum> printType);
 
+    /**
+     * 无参，默认中序输出
+     */
+    public void printTree();
 }

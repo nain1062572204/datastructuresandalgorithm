@@ -12,12 +12,12 @@ import java.util.Random;
  */
 public class TestBsTree {
     private static final int SIZE=1000;
-    private Tree<Integer> bsTree=new BsTree<>();
+    private Tree<Integer> bsTree;
     private Random random=new Random();
 
     @Test
     public void test(){
-        for(int i=0;i<SIZE;i++)
+        /*for(int i=0;i<SIZE;i++)
             bsTree.insert(random.nextInt(SIZE));
         bsTree.printTree(PrintType.MIDDLE);
         bsTree.insert(666);
@@ -25,7 +25,11 @@ public class TestBsTree {
         bsTree.remove(777);
         System.out.println("是否存在 666："+bsTree.contains(666));
         System.out.println("max:"+bsTree.findMax());
-        System.out.println("min:"+bsTree.findMin());
+        System.out.println("min:"+bsTree.findMin());*/
+        bsTree=new BsTree<>(new Integer[]{1,5,9,18,38,20,50,45,80});
+        bsTree.printTree();
+        System.out.println("max:"+ bsTree.findMax());
+        System.out.println("min:"+ bsTree.findMin());
     }
 
 }
