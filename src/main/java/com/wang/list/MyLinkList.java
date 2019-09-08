@@ -27,7 +27,7 @@ public class MyLinkList<T> implements MyList<T> {
 
     @Override
     public T get(int index) {
-        return null;
+        return getNode(index).data;
     }
 
     @Override
@@ -77,17 +77,17 @@ public class MyLinkList<T> implements MyList<T> {
 
     @Override
     public int size() {
-        return 0;
+        return theSize;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size() == 0;
     }
 
     @Override
     public void clear() {
-
+        doClear();
     }
 
     @Override
@@ -116,14 +116,38 @@ public class MyLinkList<T> implements MyList<T> {
      * 结束标记
      */
     private Node<T> endMarker;
-    private MyLinkList(){
+
+    private MyLinkList() {
         doClear();
     }
-    private void doClear(){
-        beginMarker=new Node<>(null,null,null);
-        endMarker=new Node<>(null,beginMarker,null);
-        theSize=0;
+
+    private void doClear() {
+        beginMarker = new Node<>(null, null, null);
+        endMarker = new Node<>(null, beginMarker, null);
+        theSize = 0;
         modCount++;
+    }
+
+    private Node<T> getNode(int index) {
+        return getNode(index,0,size()-1);
+    }
+
+    private Node<T> getNode(int index, int lower, int upper) {
+        if (index < lower || index > upper) {
+            throw new IndexOutOfBoundsException("getNode index: " + index + "; size: " + size());
+        }
+        Node<T> p;
+        if (index < size() / 2) {
+            p = beginMarker.next;
+            for (int i = 0; i < index; i++)
+                p = p.next;
+        } else {
+            p = endMarker;
+            for (int i = size(); i > index; i--)
+                p = p.prev;
+        }
+
+        return p;
     }
 
 }
