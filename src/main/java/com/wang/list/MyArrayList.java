@@ -153,9 +153,8 @@ public class MyArrayList<T> implements MyList<T> {
     @Override
     public int indexOf(T x) {
         for (int i = 0; i < size() - 1; i++) {
-            if (elements[i] == x) {
+            if (x.equals(elements[i]))
                 return i;
-            }
         }
         return -1;
     }
@@ -168,8 +167,8 @@ public class MyArrayList<T> implements MyList<T> {
      */
     @Override
     public int lastIndexOf(T x) {
-        for (int i = size(); i <= 0; i--) {
-            if (elements[i] == x)
+        for (int i = size()-1; i >= 0; i--) {
+            if (x.equals(elements[i]))
                 return i;
         }
         return -1;

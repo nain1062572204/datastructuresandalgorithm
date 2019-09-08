@@ -20,11 +20,11 @@ public class TestList {
         list.add(666);
         list.add(555);
         list.add(777);
+        System.out.println("del:"+list.remove(5));
+        System.out.println(list.remove(new Integer(8)));
         System.out.println(list.lastIndexOf(555));
         System.out.println(list.indexOf(555));
-        /*for (Integer integer : list) {
-            System.out.println(integer);
-        }*/
+        System.out.println(list.removeAll(new Integer(555)));
         Iterator<Integer> integerIterator=list.iterator();
         while (integerIterator.hasNext()){
             System.out.println(integerIterator.next());
