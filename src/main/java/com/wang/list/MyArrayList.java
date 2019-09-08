@@ -181,7 +181,7 @@ public class MyArrayList<T> implements MyList<T> {
      */
     @Override
     public T[] toArray() {
-        return (T[]) new Object[0];
+        return elements;
     }
 
     /**
