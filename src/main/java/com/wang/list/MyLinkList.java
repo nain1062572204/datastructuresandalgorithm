@@ -32,22 +32,26 @@ public class MyLinkList<T> implements MyList<T> {
 
     @Override
     public T set(int index, T newVal) {
-        return null;
+        Node<T> p = getNode(index);
+        T oldVal = p.data;
+        p.data = newVal;
+        return oldVal;
     }
 
     @Override
     public void add(int index, T x) {
-
+        addBefore(getNode(index, 0, size()), x);
     }
 
     @Override
     public boolean add(T x) {
-        return false;
+        add(size(), x);
+        return true;
     }
 
     @Override
     public T remove(int index) {
-        return null;
+        return remove(getNode(index));
     }
 
     @Override
@@ -129,7 +133,7 @@ public class MyLinkList<T> implements MyList<T> {
     }
 
     private Node<T> getNode(int index) {
-        return getNode(index,0,size()-1);
+        return getNode(index, 0, size() - 1);
     }
 
     private Node<T> getNode(int index, int lower, int upper) {
@@ -148,6 +152,23 @@ public class MyLinkList<T> implements MyList<T> {
         }
 
         return p;
+    }
+
+    private boolean addBefore(Node<T> p, T x) {
+        Node<T> newNode = new Node<>(x, p.prev, p);
+        newNode.prev.next = newNode;
+        p.prev = newNode;
+        theSize++;
+        modCount++;
+        return true;
+    }
+
+    private T remove(Node<T> p) {
+        p.prev.next = p.next;
+        p.next.prev = p.prev;
+        theSize--;
+        modCount++;
+        return p.data;
     }
 
 }
