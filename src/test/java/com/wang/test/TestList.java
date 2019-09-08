@@ -22,7 +22,6 @@ public class TestList {
         list.add(777);
         System.out.println(list.lastIndexOf(555));
         System.out.println(list.indexOf(555));
-        list.removeAll(555);
         /*for (Integer integer : list) {
             System.out.println(integer);
         }*/
