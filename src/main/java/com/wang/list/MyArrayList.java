@@ -1,5 +1,6 @@
 package com.wang.list;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -111,7 +112,7 @@ public class MyArrayList<T> implements MyList<T> {
             for (int i = index; i < size() - 1; i++) {
                 elements[i] = elements[i + 1];
             }
-            theSize--;
+            elements[--theSize]=null;//释放空间
             return del;
         } else
             throw new ArrayIndexOutOfBoundsException();
@@ -180,7 +181,7 @@ public class MyArrayList<T> implements MyList<T> {
      */
     @Override
     public T[] toArray() {
-        return elements;
+        return Arrays.copyOf(elements,size());
     }
 
     /**
