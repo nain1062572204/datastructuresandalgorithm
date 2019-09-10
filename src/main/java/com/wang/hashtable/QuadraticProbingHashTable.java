@@ -3,7 +3,7 @@ package com.wang.hashtable;
 /**
  * @author 王念
  * @create 2019-09-10 20:32
- * 二次探测散列表
+ * 平方探测实现散列表
  */
 public class QuadraticProbingHashTable<T> implements HashTable<T> {
     public QuadraticProbingHashTable() {
