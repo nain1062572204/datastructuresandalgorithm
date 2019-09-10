@@ -1,5 +1,6 @@
 package com.wang.hashtable;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class SeparateChainingHashTable<T> {
     /**
      * 散列表数据域
      */
-    private List<T>[] lists;
+    private List[] lists;
 
     /**
      * 构造一个默认大小的散列表
@@ -35,8 +36,7 @@ public class SeparateChainingHashTable<T> {
      */
     public SeparateChainingHashTable(int size) {
         lists = new LinkedList[nextPrime(size)];
-        for(int i=0;i<lists.length;i++)
-            lists[i]=new LinkedList<>();
+        Arrays.fill(lists, new LinkedList<>());
     }
 
     /**
@@ -45,7 +45,13 @@ public class SeparateChainingHashTable<T> {
      * @param x
      */
     public void insert(T x) {
-
+        List<T> whichList=lists[myHash(x)];
+        //如果表中不存在x
+        if(!whichList.contains(x)){
+            whichList.add(x);
+            if( ++currentSize > lists.length )
+                rehash( );
+        }
     }
 
     /**
@@ -54,6 +60,11 @@ public class SeparateChainingHashTable<T> {
      * @param x
      */
     public void remove(T x) {
+        List<T> whichList=lists[myHash(x)];
+        if(whichList.contains(x)){
+            whichList.remove(x);
+            currentSize--;
+        }
     }
 
     /**
@@ -63,6 +74,8 @@ public class SeparateChainingHashTable<T> {
      * @return true或false
      */
     public boolean contains(T x) {
+        List<T> whichList=lists[myHash(x)];
+        return whichList.contains(x);
     }
 
     /**
@@ -73,39 +86,72 @@ public class SeparateChainingHashTable<T> {
             lists[i].clear();
         currentSize = 0;
     }
+
     /**
-     * Internal method to find a prime number at least as large as n.
-     * @param n the starting number (must be positive).
-     * @return a prime number larger than or equal to n.
+     * 寻找下一个质数
+     *
+     * @param n
+     * @return a
      */
-    private static int nextPrime( int n )
-    {
-        if( n % 2 == 0 )
+    private static int nextPrime(int n) {
+        if (n % 2 == 0)
             n++;
 
-        for( ; !isPrime( n ); n += 2 )
+        for (; !isPrime(n); n += 2)
             ;
 
         return n;
     }
+
     /**
-     * Internal method to test if a number is prime.
-     * Not an efficient algorithm.
+     * 判断一个数是否是质数
+     *
      * @param n the number to test.
      * @return the result of the test.
      */
-    private static boolean isPrime( int n )
-    {
-        if( n == 2 || n == 3 )
+    private static boolean isPrime(int n) {
+        if (n == 2 || n == 3)
             return true;
 
-        if( n == 1 || n % 2 == 0 )
+        if (n == 1 || n % 2 == 0)
             return false;
 
-        for( int i = 3; i * i <= n; i += 2 )
-            if( n % i == 0 )
+        for (int i = 3; i * i <= n; i += 2)
+            if (n % i == 0)
                 return false;
 
         return true;
+    }
+
+    /**
+     * 散列函数
+     *
+     * @param x
+     * @return 哈希值
+     */
+    private int myHash(T x) {
+        int hashVal = x.hashCode();
+        hashVal %= lists.length;
+        if (hashVal < 0)
+            hashVal += lists.length;
+        return hashVal;
+    }
+
+    /**
+     *再散列
+     */
+    private void rehash(){
+        List<T> [ ]  oldLists = lists;
+
+        // 创建一个两倍大小的空表
+        lists = new List[ nextPrime( 2 * lists.length ) ];
+        for( int j = 0; j < lists.length; j++ )
+            lists[ j ] = new LinkedList<>( );
+
+        // 复制
+        currentSize = 0;
+        for( List<T> list : oldLists )
+            for( T item : list )
+                insert( item );
     }
 }
