@@ -9,7 +9,7 @@ import java.util.List;
  * @create 2019-09-09 23:35
  * 分离链接法实现散列表
  */
-public class SeparateChainingHashTable<T> {
+public class SeparateChainingHashTable<T> implements HashTable<T> {
     /**
      * 散列表默认大小
      */
@@ -44,14 +44,16 @@ public class SeparateChainingHashTable<T> {
      *
      * @param x
      */
-    public void insert(T x) {
+    public boolean insert(T x) {
         List<T> whichList=lists[myHash(x)];
         //如果表中不存在x
         if(!whichList.contains(x)){
             whichList.add(x);
             if( ++currentSize > lists.length )
                 rehash( );
+            return true;
         }
+        return false;
     }
 
     /**
@@ -59,12 +61,14 @@ public class SeparateChainingHashTable<T> {
      *
      * @param x
      */
-    public void remove(T x) {
+    public boolean remove(T x) {
         List<T> whichList=lists[myHash(x)];
         if(whichList.contains(x)){
             whichList.remove(x);
             currentSize--;
+            return true;
         }
+        return false;
     }
 
     /**
