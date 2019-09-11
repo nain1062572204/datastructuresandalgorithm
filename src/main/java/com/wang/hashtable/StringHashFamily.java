@@ -7,6 +7,7 @@ import java.util.Random;
  * @create 2019-09-11 15:34
  */
 public class StringHashFamily implements HashFamily<String> {
+    //用于计算hash值的数组，用随机数赋值
     private final int[] MULTIPLIERS;
     private final Random random = new Random();
 
@@ -31,6 +32,9 @@ public class StringHashFamily implements HashFamily<String> {
         return MULTIPLIERS.length;
     }
 
+    /**
+     * 为计算hash值的MULTIPLIERS数组随机赋值
+     */
     @Override
     public void generateNewFunctions() {
         for (int i = 0; i < MULTIPLIERS.length; i++) {

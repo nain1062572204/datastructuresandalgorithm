@@ -6,6 +6,7 @@ import java.util.Random;
 /**
  * @author 王念
  * @create 2019-09-11 14:28
+ * 布谷鸟散列
  */
 public class CuckooHashTable<T> implements HashTable<T> {
     @Override
