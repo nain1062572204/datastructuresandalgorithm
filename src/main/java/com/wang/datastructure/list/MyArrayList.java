@@ -1,4 +1,4 @@
-package com.wang.list;
+package com.wang.datastructure.list;
 
 import java.util.Arrays;
 import java.util.Iterator;

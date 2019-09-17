@@ -1,8 +1,7 @@
 package com.wang.test;
-import com.wang.tree.AvlTree;
-import com.wang.tree.BsTree;
-import com.wang.tree.PrintType;
-import com.wang.tree.Tree;
+import com.wang.datastructure.tree.AvlTree;
+import com.wang.datastructure.tree.BsTree;
+import com.wang.datastructure.tree.Tree;
 import org.junit.Test;
 
 import java.util.ArrayList;

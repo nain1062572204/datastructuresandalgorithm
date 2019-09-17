@@ -1,6 +1,6 @@
 package com.wang.test;
 
-import com.wang.hashtable.*;
+import com.wang.datastructure.hashtable.*;
 import org.junit.Test;
 
 

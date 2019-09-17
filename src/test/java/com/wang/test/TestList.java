@@ -1,6 +1,6 @@
 package com.wang.test;
 
-import com.wang.list.MyArrayList;
+import com.wang.datastructure.list.MyArrayList;
 import org.junit.Test;
 
 import java.util.Iterator;

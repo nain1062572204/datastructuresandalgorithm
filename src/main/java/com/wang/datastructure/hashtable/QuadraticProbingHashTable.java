@@ -1,4 +1,4 @@
-package com.wang.hashtable;
+package com.wang.datastructure.hashtable;
 
 /**
  * @author 王念

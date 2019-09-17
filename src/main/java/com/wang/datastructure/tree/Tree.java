@@ -1,4 +1,4 @@
-package com.wang.tree;
+package com.wang.datastructure.tree;
 /**
  * @author 王念
  * @create 2019-09-06 23:58

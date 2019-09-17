@@ -1,6 +1,4 @@
-package com.wang.list;
-
-import org.omg.CORBA.Object;
+package com.wang.datastructure.list;
 
 /**
  * @author 王念
