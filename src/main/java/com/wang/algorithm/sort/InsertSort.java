@@ -19,7 +19,7 @@ public class InsertSort {
      *
      * @param arr
      */
-    public static void insertionSort(int arr[]) {
+    public static void insertionSort(int[] arr) {
         int j;
         for (int i = 1; i < arr.length; i++) {
             int temp = arr[i];
