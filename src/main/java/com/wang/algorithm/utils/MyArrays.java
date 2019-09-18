@@ -13,7 +13,11 @@ public class MyArrays {
     private MyArrays() {
         RANDOM = new Random();
     }
-
+    public static void swapReferences(int[] arr,int idx1,int idx2){
+        int temp=arr[idx1];
+        arr[idx1]=arr[idx2];
+        arr[idx2]=temp;
+    }
     public int[] getArray(int len) {
         if (len <= 0)
             throw new ArrayIndexOutOfBoundsException();
