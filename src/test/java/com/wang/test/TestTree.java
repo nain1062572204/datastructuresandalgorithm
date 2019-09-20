@@ -52,6 +52,4 @@ public class TestTree {
         System.out.println("min:"+ avlTree.findMin());
         List<Integer> list=new ArrayList<>();
     }
-
-
 }
