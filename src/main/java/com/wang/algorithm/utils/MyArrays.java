@@ -1,5 +1,7 @@
 package com.wang.algorithm.utils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -13,11 +15,13 @@ public class MyArrays {
     private MyArrays() {
         RANDOM = new Random();
     }
-    public static void swapReferences(int[] arr,int idx1,int idx2){
-        int temp=arr[idx1];
-        arr[idx1]=arr[idx2];
-        arr[idx2]=temp;
+
+    public void swapReferences(int[] arr, int idx1, int idx2) {
+        int temp = arr[idx1];
+        arr[idx1] = arr[idx2];
+        arr[idx2] = temp;
     }
+
     public int[] getArray(int len) {
         if (len <= 0)
             throw new ArrayIndexOutOfBoundsException();
@@ -26,6 +30,14 @@ public class MyArrays {
             arr[i] = RANDOM.nextInt(len);
         }
         return arr;
+    }
+
+    public List<Integer> getList(int len) {
+        List<Integer> list = new ArrayList<>(len);
+        for (int i = 0; i < len; i++) {
+            list.add(RANDOM.nextInt(len));
+        }
+        return list;
     }
 
     public static MyArrays getInstance() {

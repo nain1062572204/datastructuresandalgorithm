@@ -29,6 +29,23 @@ public class InsertSort {
         }
     }
 
+    /**
+     * 对区间[left,right]排序
+     *
+     * @param arr
+     * @param left
+     * @param right
+     */
+    public static void insertionSort(int[] arr, int left, int right) {
+        for (int p = left + 1; p <= right; p++) {
+            int tmp = arr[p];
+            int j;
+            for (j = p; j > left && arr[tmp] < arr[j - 1]; j--)
+                arr[j] = arr[j - 1];
+            arr[j] = tmp;
+        }
+    }
+
     public static void main(String[] args) {
         int[] arr = MyArrays.getInstance().getArray(50000);
         long startTime = new Date().getTime();
