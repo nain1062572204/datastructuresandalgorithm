@@ -11,7 +11,15 @@ import java.util.Date;
  */
 public class MergeSort {
 
-
+    /**
+     * 懂的人不需要注释，不懂的人写了注释也没用
+     *
+     * @param arr
+     * @param tmpArray
+     * @param leftPos
+     * @param rightPos
+     * @param rightEnd
+     */
     private static void merge(int[] arr, int[] tmpArray, int leftPos, int rightPos, int rightEnd) {
         int leftEnd = rightPos - 1;
         int tmpPos = leftPos;
@@ -44,9 +52,8 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        //int[] arr = MyArrays.getInstance().getArray(50000);
+        int[] arr = MyArrays.getInstance().getArray(50000);
         long startTime = new Date().getTime();
-        int[] arr=new int[]{1,9,2,8,7,6,3,45,32,66,5};
         mergeSort(arr);
         long endTime = new Date().getTime();
         for (int i : arr) {
