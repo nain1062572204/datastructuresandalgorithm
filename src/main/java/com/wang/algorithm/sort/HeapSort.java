@@ -47,6 +47,5 @@ public class HeapSort {
             System.out.println(i);
         }
         System.out.println("用时:" + (endTime - startTime));
-
     }
 }
