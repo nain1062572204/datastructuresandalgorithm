@@ -30,7 +30,7 @@ public class HeapSort {
 
     public static void heapSort(int[] arr) {
         /*构建堆*/
-        for (int i = arr.length / 2 - 1; i >= 0; i--)
+        for (int i = (arr.length >>> 1) - 1; i >= 0; i--)
             percDown(arr, i, arr.length);
         for (int i = arr.length - 1; i > 0; i--) {
             MyArrays.getInstance().swapReferences(arr, 0, i);

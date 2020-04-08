@@ -18,7 +18,7 @@ public class ShellSort {
      */
     public static void shellSort(int[] arr) {
         int j;
-        for (int gap = arr.length / 2; gap > 0; gap /= 2)
+        for (int gap = arr.length >>> 1; gap > 0; gap = gap >>> 1)
             for (int i = gap; i < arr.length; i++) {
                 int temp = arr[i];
                 for (j = i; j >= gap && temp < arr[j - gap]; j -= gap)

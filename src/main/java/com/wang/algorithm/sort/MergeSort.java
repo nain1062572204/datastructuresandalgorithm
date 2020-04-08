@@ -38,7 +38,7 @@ public class MergeSort {
 
     private static void mergeSort(int[] arr, int[] tmpArray, int left, int right) {
         if (left < right) {
-            int center = (left + right) / 2;
+            int center = (left + right) >>> 1;
             mergeSort(arr, tmpArray, left, center);
             mergeSort(arr, tmpArray, center + 1, right);
             merge(arr, tmpArray, left, center + 1, right);
