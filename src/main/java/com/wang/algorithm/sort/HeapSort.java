@@ -11,7 +11,7 @@ import java.util.Date;
  */
 public class HeapSort {
     private static int leftChild(int i) {
-        return 2 * i + 1;
+        return (i << 1) + 1;
     }
 
     private static void percDown(int[] arr, int i, int n) {
