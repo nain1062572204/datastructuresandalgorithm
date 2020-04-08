@@ -40,7 +40,7 @@ public class QuickSort {
          */
         List<Integer> larger = new ArrayList<>();
         //获取中间元素
-        Integer chosenItem = items.get(items.size() / 2);
+        Integer chosenItem = items.get(items.size() >>> 1);
         for (Integer i : items) {
             if (i > chosenItem)
                 larger.add(i);
@@ -66,7 +66,7 @@ public class QuickSort {
      * 返回left center right的中值
      */
     private static int median3(int[] arr, int left, int right) {
-        int center = (left + right) / 2;
+        int center = (left + right) >>> 1;
         if (arr[center] < arr[left])
             MyArrays.getInstance().swapReferences(arr, left, center);
         if (arr[right] < arr[left])
