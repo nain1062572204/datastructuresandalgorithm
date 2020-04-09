@@ -41,6 +41,9 @@ public class MyArrays {
     }
 
     public static MyArrays getInstance() {
-        return myArrays == null ? new MyArrays() : myArrays;
+        if (myArrays == null) {
+            myArrays = new MyArrays();
+        }
+        return myArrays;
     }
 }
